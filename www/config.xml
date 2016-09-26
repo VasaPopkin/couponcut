@@ -1,10 +1,10 @@
-<?xml version='0.0.1' encoding='utf-8'?>
-<widget id="com.cutcoupon.client" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.cutcoupon.client" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>СтригиКупон</name>
     <description>
         Клиент для сайта стригикупон.рф
     </description>
-    <author email="nmichkarev@mail.ru" href="">
+    <author email="nmichkarev@mail.ru" href="http://xn--c1ajbipfgdikq.xn--p1ai/">
         Nikita Michkarev
     </author>
     <content src="index.html" />
@@ -104,4 +104,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <preference name="FadeSplashScreenDuration" value="0"/>
+    <preference name="FadeSplashScreen" value="false"/>
 </widget>
