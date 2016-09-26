@@ -104,6 +104,4 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <preference name="FadeSplashScreenDuration" value="0"/>
-    <preference name="FadeSplashScreen" value="false"/>
 </widget>
