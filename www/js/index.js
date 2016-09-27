@@ -42,7 +42,7 @@ var app = {
         ref.addEventListener('loaderror', loaderrorcb);
 
         function loadstopcb() {
-//            ref.executeScript({file: 'http://xn--c1ajbipfgdikq.xn--p1ai/inapp.js'});
+
             var inappFunc = "localStorage.removeItem('url');"+
             "$('a:not([href^=\"/\"], "+
             "[href^=\"http://xn--c1ajbipfgdikq.xn--p1ai/\"],"+
@@ -54,24 +54,29 @@ var app = {
                 console.log(params);
             });
 
-            loop = setInterval(function() {
+            var intFunc = function() {
                 // Execute JavaScript to check for the existence of a url in the
                 // child browser's localStorage.
+                if (intFunc.checked) return;
                 ref.executeScript({
                     code: "localStorage.getItem('url')"
                 },
                 function(values) {
                     var name = values[0];
-
                     if (name) {
+                        intFunc.checked = true;
                         ref.executeScript({
                             code: "localStorage.removeItem('url');"
                         }, function() {
+                            intFunc.checked = false;
                             cordova.InAppBrowser.open(name, '_system', 'location=no,zoom=no');    
                         });
                     }
                 });
-            }, 100);
+            }
+            intFunc.checked = false;
+
+            loop = setInterval(intFunc, 100);
         }
 
         function loaderrorcb(err) {
